@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class CopyQueryExecutor implements QueryExecutor {
+public class CopyQueryRepository implements DuckDBRepository {
 
     private final JdbcTemplate jdbcTemplate;
     private final String tableName;
 
-    public CopyQueryExecutor(JdbcTemplate jdbcTemplate) {
+    public CopyQueryRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
         this.tableName = "customer_";
     }
@@ -26,7 +26,7 @@ public class CopyQueryExecutor implements QueryExecutor {
     }
 
     @Override
-    public List<Map<String, Object>> executeQuery() {
+    public List<Map<String, Object>> getAll() {
         return jdbcTemplate.queryForList("SELECT * FROM " + tableName);
     }
 }

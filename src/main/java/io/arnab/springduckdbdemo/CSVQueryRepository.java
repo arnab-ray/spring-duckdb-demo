@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public class CSVQueryExecutor implements QueryExecutor {
+public class CSVQueryRepository implements DuckDBRepository {
 
     private final JdbcTemplate jdbcTemplate;
     private final String tableName;
 
-    public CSVQueryExecutor(JdbcTemplate jdbcTemplate) {
+    public CSVQueryRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
         this.tableName = "customer";
     }
@@ -24,7 +24,7 @@ public class CSVQueryExecutor implements QueryExecutor {
                 "AS SELECT * FROM read_csv('src/main/resources/customer.csv')");
     }
 
-    public List<Map<String, Object>> executeQuery() {
+    public List<Map<String, Object>> getAll() {
         return jdbcTemplate.queryForList("SELECT * FROM " + tableName);
     }
 }

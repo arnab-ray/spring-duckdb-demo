@@ -10,14 +10,14 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class CopyQueryExecutorTest {
+public class CSVQueryRepositoryTest {
 
     @Autowired
-    private CopyQueryExecutor copyQueryExecutor;
+    private CSVQueryRepository csvQueryRepository;
 
     @Test
-    public void executeQuery() {
-        var response = copyQueryExecutor.executeQuery();
+    void getAll() {
+        var response = csvQueryRepository.getAll();
         List<Map<String, Object>> expectedResponse = List.of(
                 Map.of("customer_id", 101L, "first_name", "John", "gender", "Male", "last_name", "Smith"),
                 Map.of("customer_id", 102L, "first_name", "Sarah", "gender", "Female", "last_name", "Jones"));
