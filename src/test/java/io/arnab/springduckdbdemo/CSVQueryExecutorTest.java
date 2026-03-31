@@ -16,7 +16,7 @@ public class CSVQueryExecutorTest {
     private CSVQueryExecutor csvQueryExecutor;
 
     @Test
-    public void executeQuery() {
+    void executeQuery() {
         var response = csvQueryExecutor.executeQuery();
         List<Map<String, Object>> expectedResponse = List.of(
                 Map.of("customer_id", 101L, "first_name", "John", "gender", "Male", "last_name", "Smith"),
