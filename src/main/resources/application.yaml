@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  undertow:
+    io: 2
+    worker: 16
+
+spring:
+  application:
+    name: spring-duckdb-demo
+  profiles:
+    active: local
+  datasource:
+    driver-class-name: org.duckdb.DuckDBDriver
+    url: "jdbc:duckdb:"
+#    hikari:
+#      minimumIdle: 2
+#      maximumPoolSize: 2
