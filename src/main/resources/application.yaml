@@ -12,6 +12,3 @@ spring:
   datasource:
     driver-class-name: org.duckdb.DuckDBDriver
     url: "jdbc:duckdb:"
-#    hikari:
-#      minimumIdle: 2
-#      maximumPoolSize: 2
